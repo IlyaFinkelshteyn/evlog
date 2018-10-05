@@ -20,4 +20,10 @@
     <ProjectReference Include="..\..\src\Evlog.Domain\Evlog.Domain.csproj" />
     <ProjectReference Include="..\..\src\Evlog.Infrastructure\Evlog.Infrastructure.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>  
+    <Content Update="xunit.runner.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
