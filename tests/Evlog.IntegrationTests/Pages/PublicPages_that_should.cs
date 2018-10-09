@@ -19,8 +19,18 @@ namespace Evlog.IntegrationTests.Pages
         [InlineData("/events/xyz-is-happening-again")]
 		public async Task Return_OK(string route)
 		{
-			// Act
-			var response = await _client.GetAsync(route);
+            // Act
+            HttpResponseMessage response;
+
+            for (int i = 0; i < 3; i++)
+            {
+                response = await _client.GetAsync(route);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    break;
+                }
+                System.Threading.Thread.Sleep(1000);
+            }
 
 			// Assert
 			Assert.Equal(HttpStatusCode.OK, response.StatusCode);
