@@ -20,7 +20,7 @@ namespace Evlog.IntegrationTests.Pages
 		public async Task Return_OK(string route)
 		{
             // Act
-            HttpResponseMessage response;
+            HttpResponseMessage response = new HttpResponseMessage() { StatusCode = System.Net.HttpStatusCode.Ambiguous };
 
             for (int i = 0; i < 3; i++)
             {
